@@ -109,7 +109,7 @@ userSchema.pre('save', function(next) {
   next();
 });
 
-// Pre-find middleware to filter out inactive users
+// //Pre-find middleware to filter out inactive users
 // userSchema.pre(/^find/, function(next) {
 //   this.find({ active: { $ne: false } });
 //   next();
