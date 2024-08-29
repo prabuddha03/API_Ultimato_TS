@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import morgan from 'morgan';
 import productRouter from './routes/productRoutes';
-//import userRouter from './routes/userRoutes';
+import userRouter from './routes/userRoutes';
 
 // Define a type for request with custom properties
 interface CustomRequest extends Request {
