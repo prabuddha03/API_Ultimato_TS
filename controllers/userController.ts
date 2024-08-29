@@ -71,6 +71,8 @@ export const createUser = (req: Request, res: Response) => {
   });
 };
 
+
+
 export const getUser = factory.getOne(User);
 export const getAllUsers = factory.getAll(User);
 

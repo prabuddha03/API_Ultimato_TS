@@ -3,12 +3,7 @@ import slugify from 'slugify';
 
 // Enum for product categories specific to sheep farming
 enum ProductCategory {
-  SHEEP = 'Sheep',
-  FEED = 'Feed',
-  FENCING = 'Fencing',
-  MEDICATION = 'Medication',
-  EQUIPMENT = 'Equipment',
-  SHEARING = 'Shearing',
+  MEAT = 'Meat',
   OTHER = 'Other'
 }
 
@@ -99,25 +94,25 @@ productSchema.index({ price: 1, ratingsAverage: -1 });
 productSchema.index({ slug: 1 });
 productSchema.index({ startLocation: '2dsphere' });
 
-// Virtual populate
-productSchema.virtual('reviews', {
-  ref: 'Review',
-  foreignField: 'product',
-  localField: '_id'
-});
+// // Virtual populate
+// productSchema.virtual('reviews', {
+//   ref: 'Review',
+//   foreignField: 'product',
+//   localField: '_id'
+// });
 
-// DOCUMENT MIDDLEWARE: runs before .save() and .create()
-productSchema.pre('save', function(this: IProduct, next) {
-  this.slug = slugify(this.name, { lower: true });
-  next();
-});
+// // DOCUMENT MIDDLEWARE: runs before .save() and .create()
+// productSchema.pre('save', function(this: IProduct, next) {
+//   this.slug = slugify(this.name, { lower: true });
+//   next();
+// });
 
 
 
-productSchema.post(/^find/, function(this: mongoose.Query<any, IProduct>, docs: IProduct[], next) {
-  console.log(`Query took ${Date.now() - (this as any).start} milliseconds!`);
-  next();
-});
+// productSchema.post(/^find/, function(this: mongoose.Query<any, IProduct>, docs: IProduct[], next) {
+//   console.log(`Query took ${Date.now() - (this as any).start} milliseconds!`);
+//   next();
+// });
 
 // Create Product model
 const Product = mongoose.model<IProduct>('Product', productSchema);

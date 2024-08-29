@@ -14,7 +14,7 @@ export const aliasTopProducts = (req: Request, res: Response, next: NextFunction
 
 
 export const getAllProducts = factory.getAll(Product);
-export const getProduct = factory.getOne(Product, { path: 'reviews' });
+export const getProduct = factory.getOne(Product);
 export const createProduct = factory.createOne(Product);
 export const updateProduct = factory.updateOne(Product);
 export const deleteProduct = factory.deleteOne(Product);

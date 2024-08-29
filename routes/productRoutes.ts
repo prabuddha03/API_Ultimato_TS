@@ -5,12 +5,14 @@ import {
   createProduct,
   updateProduct,
   deleteProduct,
+  aliasTopProducts,
+  getProductStats
 } from '../controllers/productController';
 
 const router = Router();
 
 // Middleware to set query parameters for top products
-//router.use('/top-products', aliasTopProducts);
+router.use('/top-products', aliasTopProducts);
 
 // Route to get all products
 router.route('/')
@@ -24,7 +26,7 @@ router.route('/:id')
   .delete(deleteProduct);
 
 // Route to get product statistics
-//router.route('/stats').get(getProductStats);
+router.route('/stats').get(getProductStats);
 
 
 export default router;
