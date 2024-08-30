@@ -78,7 +78,8 @@ const productSchema: Schema<IProduct> = new Schema({
     },
     ratingsQuantity: {
       type: Number,
-      default: 0
+      default: 0,
+
     },
     priceDiscount: {
       type: Number,
