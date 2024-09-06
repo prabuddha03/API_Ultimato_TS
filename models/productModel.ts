@@ -1,6 +1,8 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import slugify from 'slugify';
 
+
+
 // Enum for product categories specific to sheep farming
 enum ProductCategory {
   MEAT = 'Meat',
@@ -95,7 +97,7 @@ productSchema.index({ price: 1, ratingsAverage: -1 });
 productSchema.index({ slug: 1 });
 productSchema.index({ startLocation: '2dsphere' });
 
-// // Virtual populate
+// // // Virtual populate
 // productSchema.virtual('reviews', {
 //   ref: 'Review',
 //   foreignField: 'product',
